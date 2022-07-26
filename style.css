@@ -1,0 +1,662 @@
+:root{ /*espaço para criar variáveis*/
+    --cor-de-fundo: #EBECEE;
+    --branco: #FFFFFF;
+    --cinza: #858585;
+    --preto: #000000;
+    --laranja: #EB9B00;
+    --azul-gradiente: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+    --azul-marinho: #002F52;
+    --fonte-principal: "poppins";
+    --fonte-logo-alura: "Josefin Sans";
+}
+
+body{
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* HEADER */
+
+.cabecalho{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*position relative permite definir atributos para descolar o elemento como top bottom right e left. O position padrão é o static*/
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.botao__home{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.6em;
+}
+
+.container__imagem{
+    padding-right: 0.7em;
+}
+
+.container__texto{
+    display: none;
+}
+
+.container__titulo{
+    color: var(--preto);
+    padding-top: 0.3em;
+    display: none; /*Através dessa propriedade tanto o elemento quanto o espaço dele desaparecem da página*/
+}
+
+.opcoes{
+    display: none;
+}
+
+.cabecalho__menu-hamburguer{
+    width: 64px;
+    height: 64px;
+    background-image: url("img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.cabecalho__menu-hamburguer--ativo{
+    background-color: var(--azul-marinho);
+    background-image: url("img/Menu-aberto.png");
+    transition: 0.3s;
+}
+
+.lista-menu{
+    position: absolute; /*posiciona o elemento de acordo com outro que teja posição diferente de static (nesse caso, o elemento do menu)*/ 
+    width: 200px; /*vw = largura da tela - 100vw significa 100% do tamanho da tela*/
+    top: 100%; /*a distância de cima é de 100% em relação ao elemento position relative (.cabecalho)*/
+    left: -100vw; 
+    transition: 0.8s;
+    background-color: var(--branco);
+}
+
+.lista-menu__ativo{
+    left: 0;
+    transition: 0.3s;
+}
+
+.lista-menu__item{
+    padding: 1em 1.5em;
+}
+
+.lista-menu__link{
+    text-decoration: none;
+    text-transform: uppercase;
+    background: var(--azul-gradiente); /*sem essas três propriedades seguintes, a cor do background preenche o fundo do texto*/
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    background-clip: text; 
+}
+
+.lista-menu__titulo{
+    padding: 1em 1.5em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--laranja);
+}
+
+/* BANNER TOPO */
+
+.banner{
+    background: var(--azul-gradiente);
+    color: var(--branco);
+    text-align: center;
+    padding: 2.5em 2em;
+    margin-bottom: 2em;
+}
+
+.banner__titulo{
+    font-size: 18px;
+    font-weight: 700;  
+}
+
+.banner__texto{
+    font-weight: 500;
+    line-height: 24px;
+    margin: 1em 0;
+}
+
+.banner__pesquisa{
+    font-size: 14px;
+    font-weight: 400;
+    background: transparent;
+    border: 1px solid var(--branco);
+    border-radius: 24px;
+    color: var(--branco);
+    padding: 1em;
+    width: 100%;
+}
+
+.banner__pesquisa::placeholder{
+    color: var(--branco);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    background: url("img/Pesquisa.svg");
+    background-repeat: no-repeat;
+    background-position: 0.8em;
+}
+
+/* CARROSSEL */
+
+.carrossel__titulo{
+    color: var(--laranja);
+    background-color: var(--branco);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 1em 0.5em;
+}
+
+.swiper-slide img{
+    width: 100%;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    display: none;
+}
+
+.swiper-pagination{
+    position: initial;
+    margin: 0.5em 0;
+}
+
+/* TALVEZ VOCÊ TAMBÉM SE INTERESSE POR...*/
+
+.card{
+    background-color: var(--branco);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 1em;
+    margin: 2em 1.5em;
+}
+
+.card__descricao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.8em;
+}
+
+.descricao{
+    padding-right: 0.5em;
+}
+
+.descricao__estrelas{
+    margin-bottom: 0.5em;
+}
+
+.descricao__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+    line-height: 18px;
+}
+
+.descricao__titulo-livro{
+    color: var(--azul-marinho);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0.4em 0;
+    line-height: 20px;
+}
+
+.descricao__texto{
+    color: var(--preto);
+    font-size: 14px;
+    line-height: 15px;
+}
+
+.card__botoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.botoes{
+    display: flex;
+}
+
+.botoes__ancora{
+    background-color: var(--laranja);
+    color: var(--branco);
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1em 2.2em;
+}
+
+/* TÓPICOS */
+
+.topicos{
+    background: var(--azul-gradiente);
+    padding: 1em 0;
+    text-align: center;
+}
+
+.topicos__titulo{
+    color: var(--branco);
+    font-weight: 300;
+    margin: 0.5em 0;
+}
+
+.topicos__lista{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.topicos__item{
+    margin: 2em 0.5em;
+}
+
+.topicos__link{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--branco);
+    text-decoration: none;
+    background-color: var(--laranja);
+    padding: 1em;
+}
+
+/* CONTATO */
+
+.contato{
+    background-color: var(--branco);
+    padding: 1em 1em 1.5em 1em;
+}
+
+.contato__titulo, .contato__texto{
+    background: var(--azul-gradiente); /*sem essas três propriedades seguintes, a cor do background preenche o fundo do texto*/
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    background-clip: text; 
+
+}
+
+.contato__titulo{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contato__texto{
+    font-weight: 300;
+    margin: 1em 0;
+}
+
+.contato__email{
+    color: var(--azul-marinho);
+    padding: 1em;
+    background-color: transparent;
+    border: 1.5px solid var(--azul-marinho);
+    border-radius: 24px;
+    width: 90%;
+}
+
+.contato__email::placeholder{
+    font-family: var(--fonte-principal);
+    color: var(--azul-marinho);
+    font-size: 16px;
+    background: url(img/Email.svg);
+    background-repeat: no-repeat;
+    padding-left: 2em;
+}
+
+/* FOOTER */
+
+.lista--rodape{
+    display: none;
+}
+
+.rodape__titulo{
+    background-color: var(--branco);
+    padding: 1.5em 1em;
+    border-top: 0.5px solid var(--azul-marinho);
+    font-weight: 400;
+}
+
+
+/* TABLET */
+
+@media screen and (min-width: 768px){ /*a estilização criada para o layout tablet só será aplicada ao chegar no tamanho de tela 1024px.*/
+    
+    /* HEADER */
+
+    .cabecalho{
+        padding: 0 3em;
+    }
+
+    .container__titulo{
+        display: block;
+        font-family: var(--fonte-logo-alura);
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+    .container__titulo--negrito{
+        font-weight: 700;
+    }
+
+    .lista-menu__ativo{
+        left: 48px;
+        transition: 0.3s;
+    }
+
+
+    /* BANNER TOPO */
+
+    .banner__titulo{
+        font-size: 36px;
+    }
+
+    .banner__pesquisa{
+        width: 45%;
+    }
+
+    .banner__pesquisa::placeholder{
+        background-position: 1em;
+    }
+
+    /* PRINCIPAL */
+
+    .carrossel__titulo{
+        font-size: 26px;
+    }
+
+    .swiper{
+        margin: 0 9em;
+        margin-top: 1.5em;
+    }
+
+    .swiper-pagination{
+        margin: 1em 0 2em 0;
+    }
+
+    .swiper-slide img{
+        width: 85%;
+    }
+
+    .card{
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 1.5em;
+    }
+
+    /* TÓPICOS */
+
+    .topicos{
+        padding: 1em 6em 2em 6em;
+    }
+
+    .topicos__titulo{
+        font-size: 24px;
+    }
+
+    .topicos__link{
+        font-size: 24px;
+    }
+
+    /* CONTATO */
+
+    .contato{
+        display: flex;
+        padding: 2em 12em;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contato__descricao{
+        margin-right: 1em;
+    }
+
+    /* FOOTER */
+    
+    .rodape{
+        display: flex;
+        justify-content: space-between;
+        padding: 2em;
+        border-top: 1px solid var(--azul-marinho);
+    }
+
+    .rodape__titulo{
+        background-color: transparent;
+        padding: 0;
+        border-top: 0;
+        font-size: 24px;
+    }
+
+    .lista--rodape{
+        display: block;
+    }
+
+    .lista-rodape__titulo{
+        color: var(--cinza);
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .lista-rodape__item{
+        display: flex;
+        align-items: center;
+        margin: 1.5em 0;
+    }
+
+    .lista-rodape__item img{
+        margin-right: 1em;
+    }
+
+    .lista-rodape__item a{
+        text-decoration: none;
+        color: var(--preto);
+    }
+}
+
+
+/* DESKTOP */
+
+@media screen and (min-width: 1080px){
+
+    /* HEADER */
+
+    .cabecalho{
+        padding: 0.7em 3em;
+    }
+
+    .cabecalho__menu-hamburguer{
+        display: none;
+    }
+
+    .botao__home{
+        margin-right: 1em;
+    }
+
+    .opcoes{
+        display: flex;
+        margin-right: auto;
+    }
+
+    .opcoes__item{
+        text-transform: uppercase;
+        font-size: 18px;
+        padding: 1em;
+        align-self: center;
+        transition: 0.3s;
+    }
+
+    .opcoes__link{
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .opcoes__item:hover{ 
+        background-color: var(--azul-marinho);
+        transition: 0.3s;
+    }
+
+    .opcoes__item:hover > .opcoes__link{ /*o símbolo > significa "mais"*/
+        color: var(--branco);
+        transition: 0.3s;
+    }
+    .opcoes__item--ativo{
+        transition: 0.3s;
+        padding: 1em;
+        color: var(--branco);
+    }
+
+    .lista-menu__ativo{
+        left: -100vw;
+    }
+
+    .lista-menu__desktop{
+        width: 230px;
+        left: 280px;
+        display: none;
+    }
+
+    .lista-menu--ativo{
+        display: block;
+    }
+
+    .lista-menu__item{
+        transition: 0.3s;
+    }
+
+    .lista-menu__item:hover{
+        background-color: var(--azul-marinho);
+        transition: 0.4s;
+    }
+
+    .lista-menu__item:hover > .lista-menu__link{ /*o símbolo > significa "mais"*/
+        -webkit-text-fill-color: var(--branco);
+        transition: 0.4s;
+    }
+
+    .container__imagem-transparente{
+        display: none;
+    }
+
+    .container__link{
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        padding-right: 1.5em;
+    }
+
+    .container__link:hover > .container__texto{ /*o símbolo > significa "mais"*/
+        color: var(--laranja);
+    }
+
+    .container__imagem{
+        padding-right: 0;
+    }
+
+    .container__texto{
+        display: block;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: var(--azul-marinho);
+        transition: 0.3s;
+    }
+
+
+    /* BANNER */
+
+    .banner{
+        padding: 5em 2em;
+        margin-bottom: 0;
+    }
+
+    .banner__pesquisa::placeholder{
+        background-position: 11.5em;
+    }
+
+
+    /* PRINCIPAL */
+
+    .carrossel__container{
+        display: flex;
+        align-items: flex-start;
+        padding: 3.5em 11em 3.5em 11em;
+    }
+
+    .swiper{
+        margin: 0;
+        width: 60%;
+        margin-right: 4em;
+    }
+
+    .card{
+        margin: 0;
+    }
+
+    .descricao__titulo{
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 0.5em;
+    }
+
+    .descricao__titulo-livro{
+        font-size: 22px;
+    }
+
+    .descricao__texto{
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    /* TÓPICOS */
+
+    .topicos{
+        padding: 3em 25em 3em 25em;
+    }
+
+    .topicos__titulo{
+        font-size: 32px;
+        margin: 0 0 1em 0;
+    }
+
+    .topicos__item{
+        margin: 2.5em 0.7em;
+    }
+
+    /* CONTATO */
+
+    .contato{
+        padding: 2em 15em;
+    }
+
+    .contato__descricao{
+        width: 50%;
+    }
+
+    .contato__titulo{
+        font-size: 24px;
+    }
+
+    .contato__texto{
+        font-size: 18px;
+    }
+
+    .contato__email{
+        width: 50%;
+    }
+
+    /* FOOTER */
+
+    .rodape{
+        padding: 2em 11em;
+    }
+
+}
